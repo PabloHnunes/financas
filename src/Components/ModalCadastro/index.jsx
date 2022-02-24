@@ -38,7 +38,7 @@ function ModalCadastro() {
     setDescricao("");
   };
   const onChangeValor = (event) => {
-    setValor(mask(unMask(event.target.value), ["999,99", "9.999,99"]));
+    setValor(mask(unMask(event.target.value), ["999,99", "999.999,99","999.999.999,99", "999.999.999.999,99"]));
   };
   const onChangeParcela = (event) => {
     setParcela(event.target.value);
