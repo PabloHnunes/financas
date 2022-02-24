@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { corPrimaria } from "./variaveis";
 
 export const Icone = styled.img`
   height: 25px;
@@ -27,7 +26,6 @@ export const Box = styled.div`
   }
 `;
 
-
 export const Btn = styled.button`
   margin: 15px auto 0px auto;
   display: block;
@@ -50,6 +48,13 @@ export const Btn = styled.button`
 
 export const BtnCadastro = styled(Btn)`
   margin-bottom: 20px;
+  background-image: ${(props) => {
+    if (props.save) {
+      return "radial-gradient(circle at 50% -20.71%, #1FD70B 0, #1FD70B 50%, #1FD70B 100%)";
+    }else if(props.cancel){
+      return "radial-gradient(circle at 120.71% 50%, #f23c3c 0, #f23c3c 50%, #f23c3c 100%)";
+    }
+  }};
 
   span {
     cursor: pointer;
@@ -122,7 +127,4 @@ export const BoxModal = styled(Box)`
     width: 95%;
     margin: 5px;
   }
-
 `;
-
-

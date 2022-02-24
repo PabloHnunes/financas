@@ -20,6 +20,8 @@ function ModalCadastro() {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [valor, setValor] = useState(0.0);
   const [ parcela, setParcela ] = useState(1);
+  const [ usaPorcentagem, setUsaPorcent ] = useState(false);
+  const [ porcentagem, setPorcentagem ] = useState(0); 
   const [descricao, setDescricao] = useState("");
 
   function openModal() {
@@ -40,6 +42,9 @@ function ModalCadastro() {
   };
   const onChangeParcela = (event) => {
     setParcela(event.target.value);
+  }
+  const onChangePorcentagem = (event) => {
+    setPorcentagem(event.target.value);
   }
   return (
     <div>
@@ -97,10 +102,23 @@ function ModalCadastro() {
               />
             </Grid>
             <Grid item xs={4}>
-              <BtnCadastro onClick={closeModal}>Fechar</BtnCadastro>
+              <TextField
+                disabled={!usaPorcentagem}
+                label="Porcentagem"
+                id="porcentagem-conta"
+                value={porcentagem}
+                onChange={onChangePorcentagem}
+                size="small"
+                color="warning"
+              />
             </Grid>
-            <Grid item xs={4}>
-              <BtnCadastro onClick={closeModal}>Salvar</BtnCadastro>
+            <Grid item xs={12}>
+            </Grid>
+            <Grid item xs={2}>
+              <BtnCadastro cancel onClick={closeModal}>Fechar</BtnCadastro>
+            </Grid>
+            <Grid item xs={1}>
+              <BtnCadastro save onClick={closeModal}>Salvar</BtnCadastro>
             </Grid>
           </Grid>
         </BoxModal>
