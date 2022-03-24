@@ -9,4 +9,7 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     text-decoration: none;
 }
+body{
+    background-color: ${ ({theme}) => theme.body };
+}
 `;

@@ -8,10 +8,10 @@ import { IconeTema } from "../Components/UI";
 
 export default (type) => {
   const Images = {
-    Resturante: <IconeTema src={alimentacao} alt="Restaurante" />,
-    Saude: <IconeTema src={saude} alt="Saúde" />,
+    Restaurante: <IconeTema src={alimentacao} alt="Restaurante" />,
+    Saúde: <IconeTema src={saude} alt="Saúde" />,
     Transporte: <IconeTema src={transporte} alt="Transporte" />,
-    Utilidades: <IconeTema src={utilidades} alt="Utilidades" />,
+    Útilidades: <IconeTema src={utilidades} alt="Útilidades" />,
     default: <IconeTema src={outros} alt="Outro" />,
   };
 

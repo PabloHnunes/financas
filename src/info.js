@@ -9,14 +9,14 @@ export const extratoLista = {
     },
     {
       id: "4564654",
-      type: "Utilidades",
+      type: "Útilidades",
       value: "130,00",
       date: "9 JUN",
       from: "CPFL *energia",
     },
     {
       id: "65445",
-      type: "Saude",
+      type: "Saúde",
       value: "15,00",
       date: "8 JUN",
       from: "Farma Ponte",

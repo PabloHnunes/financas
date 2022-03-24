@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import money from "../../assets/images/money.svg";
 import { corPrimaria } from "../UI/variaveis";
@@ -34,12 +35,16 @@ const Cabecalho = () => {
     <StyledHeader>
       <Logo src={money} alt="Logo Smart Bank" />
       <div>
-        <BtnCabecalho primary href="https://google.com">
-          Ajuda
-        </BtnCabecalho>
-        <BtnCabecalho href="https://google.com">
-          Sair
-        </BtnCabecalho>
+        <Link to="/todo">
+          <BtnCabecalho primary>
+            Todo List
+          </BtnCabecalho>
+        </Link>
+        <Link to="/">
+          <BtnCabecalho>
+            Sair
+          </BtnCabecalho>
+        </Link>
       </div>
     </StyledHeader>
   );

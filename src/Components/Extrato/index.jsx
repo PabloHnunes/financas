@@ -5,14 +5,31 @@ import Itens from "../Itens";
 import ModalCadastro from "../ModalCadastro";
 
 const Extrato = (props) => {
+  const [extrato, setExtrato] = useState(extratoLista.updates);
+
+  const addExtrato = (gasto) => {
+    if (!gasto.type || /^\s*$/.test(gasto.type) || !gasto.from || /^\s*$/.test(gasto.from)) {
+      return;
+    }
+
+    const newExtrato = [gasto, ...extrato];
+
+    setExtrato(newExtrato);
+  };
+
+  const removeExtrato = (id) => {
+    const removeArray = [...extrato].filter((gasto) => gasto.id !== id);
+
+    setExtrato(removeArray);
+  };
 
   return (
     <>
       <Box>
-        <ModalCadastro/>
-        {extratoLista.updates.map(({ id, type, from, value, date }) => {
+        <ModalCadastro addExtrato={addExtrato} />
+        {extrato.map(({ id, type, from, value, date }) => {
           return (
-            <Itens key={id} type={type} from={from} value={value} date={date} />
+            <Itens key={id} id={id} type={type} from={from} value={value} date={date} removeExtrato={removeExtrato}/>
           );
         })}
       </Box>

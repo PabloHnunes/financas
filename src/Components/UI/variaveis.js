@@ -2,7 +2,13 @@ export const corPrimaria = "linear-gradient(95deg, #ffc31a 0, #ffb42b 8.33%, #ff
 export const fundoClaro = "#f1f1f1";
 export const textoFundoClaro = "grey";
 export const conteudoClaro ="white";
+export const containerClaro="#AEB6BF";
+export const fonteClara="#151414";
+export const overClaro="#D5D8DC";
 
 export const fundoEscuto = "#363537";
 export const textoFundoEscurto = "#FAFAFA";
 export const conteudoEscuro = "#5c5b5e";
+export const containerEscuro = "#1A5276";
+export const fonteEscura = "#EBE4E4";
+export const overEscuro = "#424949"

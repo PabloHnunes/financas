@@ -19,6 +19,25 @@ export const Box = styled.div`
   box-shadow: 4px 4px 20px 0px rgba(0, 0, 0, 0.04);
   padding: 20px;
   width: 48%;
+  max-height: 600px;
+  overflow: auto;
+  ::-webkit-scrollbar {
+    width:10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: ${({ theme }) => theme.overflow};
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(54, 56, 58);
+  }
 
   @media (max-width: 800px) {
     width: 95%;
@@ -51,7 +70,7 @@ export const BtnCadastro = styled(Btn)`
   background-image: ${(props) => {
     if (props.save) {
       return "radial-gradient(circle at 50% -20.71%, #1FD70B 0, #1FD70B 50%, #1FD70B 100%)";
-    }else if(props.cancel){
+    } else if (props.cancel) {
       return "radial-gradient(circle at 120.71% 50%, #f23c3c 0, #f23c3c 50%, #f23c3c 100%)";
     }
   }};

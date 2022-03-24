@@ -22,7 +22,16 @@ export default (props) => {
       {ImageFilter(props.type)}
       <Item {...props} />
       <span>{props.date}</span>
-      <IconeTema src={backspace} alt='Backspace'></IconeTema>
+      <IconeTema
+        src={backspace}
+        alt="Backspace"
+        onClick={() => {
+
+          console.log(props);
+          console.log("TESTE DE CLICK " + props.id);
+          props.removeExtrato(props.id);
+        }}
+      ></IconeTema>
     </Itens>
   );
 };

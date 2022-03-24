@@ -8,6 +8,8 @@ import Extrato from "../Extrato";
 const Container = styled.div`
   background-color: ${ ({theme}) => theme.body };
   min-height: 90vh;
+  max-height: 400px ;
+  overflow: auto ;
   padding: 0px 15vw;
 `;
 const Conteudo = styled.section`
