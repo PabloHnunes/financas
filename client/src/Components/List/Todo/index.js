@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useState } from "react";
+import React, { useState } from "react";
 import TodoForm from "../TodoForm";
 import { RiCloseCircleLine } from "react-icons/ri";
 import { TiEdit } from "react-icons/ti";
@@ -6,37 +6,36 @@ import { TodoIcons, TodoItem } from "./styled";
 
 function Todo({ todos, completeTodo, removeTodo, updateTodo }) {
   const [edit, setEdit] = useState({
-    id: null,
-    value: "",
+    _id: null,
+    texto: "",
   });
 
-  const submitUpdate = (value) => {
-    updateTodo(edit.id, value);
-    setEdit({ id: null, value: "" });
+  const submitUpdate = (texto) => {
+    updateTodo(edit._id, texto);
+    setEdit({ _id: null, texto: "", feito: false});
   };
 
-
-  if (edit.id) {
+  if (edit._id) {
     return <TodoForm edit={edit} onSubmit={submitUpdate} />;
   }
-  
+
   return todos.map((todo, index) => (
-    <TodoItem className={todo.isComplete ? "complete" : ""} key={todo.id}>
+    <TodoItem className={todo.feito ? "complete" : ""} key={index}>
       <div
-        key={todo.id}
+        key={todo._id}
         onClick={() => {
-          completeTodo(todo.id);
+          completeTodo(todo._id);
         }}
       >
-        {todo.text}
+        {todo.texto}
       </div>
       <TodoIcons>
         <RiCloseCircleLine
-          onClick={() => removeTodo(todo.id)}
+          onClick={() => removeTodo(todo._id)}
           className="delete-icon"
         />
         <TiEdit
-          onClick={() => setEdit({ id: todo.id, value: todo.text })}
+          onClick={() => setEdit({ _id: todo._id, texto: todo.texto, feito: todo.feito })}
           className="edit-icon"
         />
       </TodoIcons>
@@ -44,4 +43,4 @@ function Todo({ todos, completeTodo, removeTodo, updateTodo }) {
   ));
 }
 
-export default memo(Todo);
+export default Todo;

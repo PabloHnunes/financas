@@ -1,37 +1,16 @@
-import React, { useState } from "react";
-import { ThemeProvider } from "styled-components";
-import { temaClaro, temaEscuro } from "./Components/UI/temas";
+import express from "express";
+import db from "./config/dbConnect.js";
+import routes from "./routes/index.js";
 
-import Cabecalho from "./Components/Cabecalho";
-import { GlobalStyle } from "./Components/GlobalStyle";
-import { BtnTema } from "./Components/UI";
-import SwitcherTema from "./Components/SwitcherTema";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Container from "./Components/Container";
-import List from "./Components/List";
+db.on("error", console.log.bind(console, 'Erro de conexão'));
+db.once("open", () => {
+    console.log("Conexão com o banco feita com sucesso!");
+});
 
-function App() {
-  const [tema, setTema] = useState(true);
+const app = express();
 
-  const toggleTema = () => {
-    setTema((tema) => !tema);
-  };
-  return (
-    <ThemeProvider theme={tema ? temaClaro : temaEscuro}>
-      <BrowserRouter>
-      <GlobalStyle />
-      <BtnTema onClick={toggleTema}>
-        <SwitcherTema tema={tema} />
-      </BtnTema>
-      <Cabecalho />
-      
-            <Routes>
-                <Route exact path="/" element={<Container />} />
-                <Route exact path="/todo" element={<List />} /> 
-            </Routes>
-      </BrowserRouter>
-    </ThemeProvider>
-  );
-}
+app.use(express.json());
 
-export default App;
+routes(app);
+
+export default app;

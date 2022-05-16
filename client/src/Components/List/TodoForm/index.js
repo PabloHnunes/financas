@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { TodoForms, TodoInput, TodoButton } from "./styled";
-import { AiOutlinePlus } from "react-icons/ai";
 
 function TodoForm(props) {
   const [input, setInput] = useState(props.edit ? props.edit.value : "");
@@ -18,8 +17,8 @@ function TodoForm(props) {
     e.preventDefault();
 
     props.onSubmit({
-      id: Math.floor(Math.random() * 10000),
-      text: input,
+      texto: input,
+      feito: false
     });
 
     setInput("");
@@ -34,7 +33,7 @@ function TodoForm(props) {
             placeholder="Atualizar atividade"
             className="edit"
             value={input}
-            name="text"
+            name="texto"
             onChange={handleChange}
             ref={inputRef}
           />
@@ -46,15 +45,11 @@ function TodoForm(props) {
             type="text"
             placeholder="Adicionar atividade"
             value={input}
-            name="text"
+            name="texto"
             onChange={handleChange}
             ref={inputRef}
           />
-          <TodoButton>
-            <div className="label_button">
-              Adicionar <AiOutlinePlus className="plus-icon" />{" "}
-            </div>
-          </TodoButton>
+          <TodoButton> Adicionar + </TodoButton>
         </>
       )}
     </TodoForms>

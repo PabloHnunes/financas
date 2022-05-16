@@ -5,7 +5,8 @@ export const TodoItem = styled.div`
   justify-content: space-between;
   align-items: center;
   margin: 4px auto;
-  color: ${ ({theme}) => theme.fonte };
+  color: #fff;
+  cursor: pointer;
   background: linear-gradient(
     90deg,
     rgba(255, 118, 20, 1) 0%,
@@ -53,10 +54,10 @@ export const TodoIcons = styled.div`
   cursor: pointer;
   .delete-icon {
     margin-right: 5px;
-    color: ${ ({theme}) => theme.fonte };
+    color: #fff;
   }
   .edit-icon {
-    color: ${ ({theme}) => theme.fonte };
+    color: #fff;
     margin-right: 5px;
   }
 `;

@@ -26,9 +26,6 @@ export default (props) => {
         src={backspace}
         alt="Backspace"
         onClick={() => {
-
-          console.log(props);
-          console.log("TESTE DE CLICK " + props.id);
           props.removeExtrato(props.id);
         }}
       ></IconeTema>

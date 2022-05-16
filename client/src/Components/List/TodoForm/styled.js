@@ -10,10 +10,10 @@ export const TodoInput = styled.input`
   outline: none;
   width: 320px;
   background: transparent;
-  color: ${ ({theme}) => theme.fonte };
+  color: #fff;
 
   ::placeholder {
-    color: ${ ({theme}) => theme.fonte };
+    color: #e2e2e2;
   }
 
   &.edit {
@@ -31,7 +31,7 @@ export const TodoButton = styled.button`
     rgba(93, 12, 255, 1) 0%,
     rgba(155, 0, 250, 1) 100%
   );
-  color: ${ ({theme}) => theme.fonte };
+  color: #fff;
   text-transform: capitalize;
 
   &.edit {
@@ -41,15 +41,5 @@ export const TodoButton = styled.button`
       rgba(17, 122, 255, 1) 100%
     );
     padding: 16px 22px;
-  }
-  .label_button{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-
-    .plus-icon{
-      width: 16px;
-      height: 16px;
-    }
   }
 `;
